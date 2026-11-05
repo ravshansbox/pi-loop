@@ -161,7 +161,7 @@ test_saves_raw_events() {
 }
 
 test_ignores_old_status() {
-  echo done >"$work/status.txt"
+  echo "done" >"$work/status.txt"
   run_loop MAX_ROUNDS=1 && expect_exit_code 1 && expect_calls 1
 }
 

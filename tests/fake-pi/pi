@@ -10,7 +10,7 @@ if [[ -f "$FAKE_PI_DIR/context-$count" ]]; then
 fi
 
 if [[ -f "$FAKE_PI_DIR/done-$count" ]]; then
-  echo done >status.txt
+  echo "done" >status.txt
 fi
 
 if [[ -f "$FAKE_PI_DIR/sleep-$count" ]]; then

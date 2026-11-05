@@ -82,7 +82,7 @@ for ((round = 1; round <= max_rounds; round++)); do
     echo "warning: $context_file is $context_size bytes, over the limit of $context_limit" >&2
   fi
 
-  if [[ -f "$status_file" && "$(tr -d '[:space:]' <"$status_file")" == done ]]; then
+  if [[ -f "$status_file" && "$(tr -d '[:space:]' <"$status_file")" == "done" ]]; then
     echo "finished after $round rounds"
     exit 0
   fi
