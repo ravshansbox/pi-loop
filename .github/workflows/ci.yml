@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - if: runner.os == 'macOS'
+        run: brew install coreutils shellcheck
+      - run: shellcheck --severity=warning loop.sh tests/loop_test.sh tests/fake-pi/pi
+      - run: bash tests/loop_test.sh
